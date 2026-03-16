@@ -3,17 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.ListaProduto">
 
-
-    <VerticalStackLayout>
-    <Label Text="Minhas Compras" 
-               HorizontalOptions="Center" 
-               VerticalOptions="Center" 
-               FontSize="25" 
-               FontAttributes="Bold" />
-    </VerticalStackLayout>
-
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Somar" Order="Secondary" />
+        <ToolbarItem Text="Somar" Order="Secondary" Clicked="ToolbarItem_Clicked_1" />
         <ToolbarItem Text="Adicionar" Order="Secondary" Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label Text="Minhas Compras" 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" 
+            FontSize="25" 
+            FontAttributes="Bold" />
+        <SearchBar x:Name="txt_search" Margin="20"
+                   Placeholder="Busca de Produtos" 
+                   TextChanged="txt_search_TextChanged"/>
+        <ListView x:Name="lst_produtos">
+            <ListView.Header>
+                <Border Stroke="White"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2"
+                        Margin="20"
+                        Padding="5">
+                    <Grid ColumnDefinitions="*, *, *, *, *" Padding="20, 0, 20 ,0" Margin="20, 0, 20, 0">
+                        <Label Text="ID" Grid.Column="0" FontAttributes="Bold"/>
+                        <Label Text="Descrição" Grid.Column="1" FontAttributes="Bold"/>
+                        <Label Text="Quantidade" Grid.Column="2" FontAttributes="Bold"/>
+                        <Label Text="Preço" Grid.Column="3" FontAttributes="Bold"/>
+                        <Label Text="Total" Grid.Column="4" FontAttributes="Bold"/>
+                    </Grid>
+                </Border>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Remover" />
+                        </ViewCell.ContextActions>
+                        <Grid ColumnDefinitions="*, *, *, *, *" Padding="20, 2, 20 ,2" Margin="20, 0, 20, 0">
+                            <Label Text="{Binding Id}" Grid.Column="0"/>
+                            <Label Text="{Binding Descricao}" Grid.Column="1"/>
+                            <Label Text="{Binding Preco}" Grid.Column="2"/>
+                            <Label Text="{Binding Quantidade}" Grid.Column="3"/>
+                            <Label Text="{Binding Total}" Grid.Column="4"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </VerticalStackLayout>
 </ContentPage>
