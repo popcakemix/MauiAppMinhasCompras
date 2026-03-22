@@ -16,7 +16,7 @@
         <SearchBar x:Name="txt_search" Margin="20"
                    Placeholder="Busca de Produtos" 
                    TextChanged="txt_search_TextChanged"/>
-        <ListView x:Name="lst_produtos">
+        <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
             <ListView.Header>
                 <Border Stroke="White"
                         StrokeThickness="1"
@@ -36,7 +36,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Remover" />
+                            <MenuItem Text="Remover" Clicked="MenuItem_Clicked"/>
                         </ViewCell.ContextActions>
                         <Grid ColumnDefinitions="*, *, *, *, *" Padding="20, 2, 20 ,2" Margin="20, 0, 20, 0">
                             <Label Text="{Binding Id}" Grid.Column="0"/>
