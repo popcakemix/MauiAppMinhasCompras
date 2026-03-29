@@ -16,14 +16,18 @@
                FontAttributes="Bold" />
 
         <VerticalStackLayout Margin="10" Padding="10, 0, 10, 10">
-            <Label Text="Descrição do Produto:" Padding="0, 0, 0, 5"/>
-            <Entry x:Name="txt_descricao" WidthRequest="600" HorizontalOptions="Start"/>
+            <Label Text="Descrição do Produto:" Padding="0, 10, 0, 5"/>
+            <Entry x:Name="txt_descricao" Placeholder="Nome do produto" WidthRequest="350" HorizontalOptions="Start"/>
 
-            <Label Text="Quantidade:" Padding="0, 15, 0, 5" />
-            <Entry x:Name="txt_quantidade" Keyboard="Numeric" WidthRequest="600" HorizontalOptions="Start"/>
-
+            <Label Text="Quantidade:" Padding="0, 15, 0, 5"/>
+            <Entry x:Name="txt_quantidade" Placeholder="Ex: Quantidade do produto" Keyboard="Numeric" HorizontalOptions="Start" WidthRequest="350"/>
+            
             <Label Text="Preço Unitário:" Padding="0, 15, 0, 5"/>
-            <Entry x:Name="txt_preco" Keyboard="Numeric" WidthRequest="600" HorizontalOptions="Start"/>
+            <Entry x:Name="txt_preco" Placeholder="Ex: Preço por unidade" Keyboard="Numeric" WidthRequest="350" HorizontalOptions="Start"/>
+            
+            <Label Text="Categoria:" Padding="0, 15, 0, 5"/>
+            <Entry x:Name="txt_categoria" Placeholder="Ex: Alimentos" WidthRequest="350" HorizontalOptions="Start"/>
+
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
